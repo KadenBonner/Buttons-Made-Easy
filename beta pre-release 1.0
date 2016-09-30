@@ -1,0 +1,101 @@
+
+/**
+
+BUTTON FUNCTION:
+ By OPTIMISED Studios
+
+HOW TO USE:
+ Copy and paste the variable on line 25 and the function
+ on line 31 into your program. Enjoy!
+
+VARIABLES (7):
+ 1. Message Displayed on the button
+ 2. X-Position
+ 3. Y-Position
+ 4. Width of the Button
+ 5. Height of the Button
+ 6. The radius of the corners
+ 7. Code to run when the button is clicked (Make sure the
+    code to run is in a function: "function(){code here}")
+  
+EXAMPLE:
+ button("hello!", 100, 100, 200, 200, 5, function(){println("you clicked me!");});
+
+ */
+
+var data = {
+    
+    mouse_over: null,
+    clicked: 0
+    
+};
+var button = function (message, x, y, w, h, radius, clicked) {
+    
+    var button_oco = (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) ? 100 : 55;
+    var add_pos = button_oco === 100 ? 2.5 : 0;
+    
+    stroke(0, 0, 0, 55);
+    strokeWeight(4);
+    
+    noFill();
+    rect(x + 4, y + 4, w, h, radius);
+    
+    stroke(255, 255, 255);
+    
+    fill(255, 255, 255, button_oco);
+    rect(x + add_pos, y + add_pos, w, h, radius);
+    
+    textAlign(CENTER, CENTER);
+    textFont(createFont("Ubuntu Bold"));
+    
+    fill(0, 0, 0, 55);
+    text(message, x + 4 + w / 2, y + 4 + h / 2);
+    
+    fill(255, 255, 255);
+    text(message, x + add_pos + w / 2, y + add_pos + h / 2);
+    
+    if (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) {
+        
+        data.mouse_over = 15;
+        
+        if (mouseIsPressed) {
+            
+            if (data.clicked === 0) {
+                
+                clicked();
+                data.clicked ++;
+                
+            }
+            
+        }
+        else {
+            
+            data.clicked = 0;
+            
+        }
+        
+    }
+    
+    if (data.mouse_over > 0) {
+        
+        cursor(HAND);
+        data.mouse_over --;
+        
+    }
+    else {
+        
+        cursor();
+        
+    }
+    
+};
+
+draw = function () {
+    
+    background(155, 100, 100);
+    textSize(30);
+    
+    button("Main Button", 75, 120, 250, 70, 5, function(){println("You clicked \"Main Button\"!");});
+    button("Other Button", 75, 210, 250, 70, 5, function(){println("You clicked \"Other Button\"!");});
+    
+};
