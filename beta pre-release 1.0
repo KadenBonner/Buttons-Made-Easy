@@ -5,8 +5,8 @@ BUTTON FUNCTION:
  By OPTIMISED Studios
 
 HOW TO USE:
- Copy and paste the variable on line 25 and the function
- on line 31 into your program. Enjoy!
+ Copy and paste the variable starting on line 26 and the
+ function starting on line 32 into your program. Enjoy!
 
 VARIABLES (7):
  1. Message Displayed on the button
@@ -87,15 +87,5 @@ var button = function (message, x, y, w, h, radius, clicked) {
         cursor();
         
     }
-    
-};
-
-draw = function () {
-    
-    background(155, 100, 100);
-    textSize(30);
-    
-    button("Main Button", 75, 120, 250, 70, 5, function(){println("You clicked \"Main Button\"!");});
-    button("Other Button", 75, 210, 250, 70, 5, function(){println("You clicked \"Other Button\"!");});
     
 };
