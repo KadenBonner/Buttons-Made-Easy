@@ -14,5 +14,5 @@ Please note that the buttons will have to be drawn on a canvas. Khan Academy's c
 * The code to run in the event that the button is clicked. (Should be put in a function: `function(){<code here>}`)
 
 **Example Setup:**
-If you are interested on viewing the results of the following script, copy-paste it into Khan Academy and view the attached image.
-`button("string", 100, 100, 200, 200, 5, function(){println("clicked");})`
+If you are interested on viewing the results of the following script, copy-paste it into Khan Academy.
+`button("string", 100, 100, 200, 200, 5, function(){println("clicked");});`
